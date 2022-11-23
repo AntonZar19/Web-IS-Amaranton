@@ -139,7 +139,7 @@
   <!-- <H1 class="titulos">BIENVENIDOS</H1> -->
 
 
- <!--Carrusel-->
+<!--Carrusel-->
  <div class="carrusel">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -148,15 +148,17 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div> 
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/static/img/prueba11.jpg" class="imgcar d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/static/img/prueba22.jpg" class="imgcar d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/static/img/prueba33.jpg" class="imgcar d-block w-100 h-100" alt="...">
-    </div>
+    {% for carousel_item in var1 %}
+        {% if  forloop.first %} 
+        <div class="carousel-item active">
+          <img src={{carousel_item.image.url}} class="imgcar d-block w-100 h-100" alt="...">
+        </div>
+        {% else %}
+        <div class="carousel-item">
+          <img src={{carousel_item.image.url}} class="imgcar d-block w-100 h-100" alt="...">
+        </div>
+        {% endif %}
+        {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
